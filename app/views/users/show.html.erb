@@ -1,58 +1,61 @@
-<div class="edit_prof">
-  <% if @user == current_user %>
-    <%= link_to "Edit Profile", edit_user_path %>
+<div>
+  <% if current_user != @user %>
+    <h1><%= "@#{@user.username}" %></h1>
   <% end %>
 </div>
 
 <div>
-    <h1><%= "@#{@user.username}" %></h1>
-</div>
-
-<div>
-
-  <h3>Watching</h3>
+  <nav>
+    <div class="nav-watching">Watching</div>
+    <div class="nav-to-watch">Want to Watch</div>
+    <div class="nav-watched">Watched</div>
+    <div class="nav-add-show">
+      <%= link_to "+", new_user_show_path(current_user) %>
+      <%= link_to "Add show", new_user_show_path(current_user) %>
     <div>
+  </nav>
+
+  <div class="list">
+
+    <div class="list-watching">
       <% @user_shows.each do |show| %>
         <% if show.watching %>
-          <div>
-            ---------------------
+          <div class="show-line">
+            <p>
+              <%= link_to "Done", done_user_show_path(@user, show) %> |
+              <%= link_to "Sleep" %>
+            </p>
             <p><%= show.title %></p>
-            <p><%= link_to "Done", done_user_show_path(@user, show) %></p>
-            <p><%= link_to "X", user_show_path(@user, show), method: :delete %></p>
-            ---------------------
+            <p><%= link_to "x", user_show_path(@user, show), method: :delete %></p>
           </div>
         <% end %>
       <% end %>
     </div>
 
-  <h3>Want to Watch</h3>
-    <div>
+    <div class="list-to-watch">
       <% @user_shows.each do |show| %>
         <% if show.to_watch %>
-          <div>
-            ---------------------
-            <p><%= show.title %></p>
+          <div class="show-line">
             <p><%= link_to "Start", start_user_show_path(@user, show) %></p>
-            <p><%= link_to "X", user_show_path(@user, show), method: :delete %></p>
-            ---------------------
+            <p><%= show.title %></p>
+            <p><%= link_to "x", user_show_path(@user, show), method: :delete %></p>
           </div>
         <% end %>
       <% end %>
     </div>
 
-  <h3>Watched</h3>
-    <div>
+    <div class="list-watched">
       <% @user_shows.each do |show| %>
         <% if show.watched %>
-          <div>
-            ---------------------
+          <div class="show-line">
             <p><%= show.title %></p>
-            <p><%= link_to "X", user_show_path(@user, show), method: :delete %></p>
-            ---------------------
+            <p><%= link_to "x", user_show_path(@user, show), method: :delete %></p>
           </div>
         <% end %>
       <% end %>
     </div>
+
+  </div>
 
 </div>
 
@@ -66,3 +69,8 @@
     </a>
   <% end %>
 </p>
+<div class="edit_prof">
+  <% if @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_path %>
+  <% end %>
+</div>

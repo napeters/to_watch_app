@@ -12,11 +12,6 @@
   <p class="flash"><%= flash.notice %></p>
 
   <div class="container1">
-    <div class="new">
-      <% if current_user %>
-        <%= link_to "Add show", new_user_show_path(current_user) %>
-      <% end %>
-    </div>
     <div class="account_info">
       <% if current_user %>
         <%= link_to "@#{current_user.username}", user_path(current_user) %> |

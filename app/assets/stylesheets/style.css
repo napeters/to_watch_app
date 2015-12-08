@@ -1,0 +1,66 @@
+body {
+  background: lightgray;
+}
+
+a {
+  text-decoration: none;
+}
+
+.content {
+  max-width: 80%;
+  margin: 0 auto;
+  border-radius: 15px;
+  color: cornflowerblue;
+  background: white;
+  padding: 20px;
+}
+
+nav {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30px;
+}
+
+nav > div {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  border-right: 2px solid lightgray;
+}
+
+.list {
+  display: inline-block;
+  padding-left: 50px;
+}
+
+.show-line > p {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.show-line > p:first-child > a, .show-line > p:last-child > a {
+  color: gray;
+}
+
+.nav-watching {
+  font-weight: bold;
+  border-right: none;
+}
+
+.list-watching {
+  display: inline;
+}
+
+.list-to-watch {
+  display: none;
+}
+
+.list-watched {
+  display: none;
+}
+
+.nav-add-show > a {
+  color: gray;
+  font-size: 20px
+}
