@@ -1,0 +1,68 @@
+<div class="edit_prof">
+  <% if @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_path %>
+  <% end %>
+</div>
+
+<div>
+    <h1><%= "@#{@user.username}" %></h1>
+</div>
+
+<div>
+
+  <h3>Watching</h3>
+    <div>
+      <% @user_shows.each do |show| %>
+        <% if show.watching %>
+          <div>
+            ---------------------
+            <p><%= show.title %></p>
+            <p><%= link_to "Done", done_user_show_path(@user, show) %></p>
+            <p><%= link_to "X", user_show_path(@user, show), method: :delete %></p>
+            ---------------------
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  <h3>Want to Watch</h3>
+    <div>
+      <% @user_shows.each do |show| %>
+        <% if show.to_watch %>
+          <div>
+            ---------------------
+            <p><%= show.title %></p>
+            <p><%= link_to "Start", start_user_show_path(@user, show) %></p>
+            <p><%= link_to "X", user_show_path(@user, show), method: :delete %></p>
+            ---------------------
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  <h3>Watched</h3>
+    <div>
+      <% @user_shows.each do |show| %>
+        <% if show.watched %>
+          <div>
+            ---------------------
+            <p><%= show.title %></p>
+            <p><%= link_to "X", user_show_path(@user, show), method: :delete %></p>
+            ---------------------
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+</div>
+
+<p>
+  <!-- <%= link_to "Back to all posts", "/", {:class => "back"} %> -->
+  <% if @user == current_user %>
+    <a class="change">
+      <%= link_to "Delete Account", user_path(@user),
+          method: :delete,
+          data: { confirm: "Are you sure you want to permanently delete your account?" } %>
+    </a>
+  <% end %>
+</p>

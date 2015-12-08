@@ -1,0 +1,30 @@
+<% if @show.errors.any? %>
+  <div>
+    <h4>
+      Wait a minute,
+      <%= pluralize(@show.errors.count,"error") %>
+      here:
+    </h4>
+    <ol>
+      <% @show.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ol>
+  </div>
+<% end %>
+
+<p>
+  <%= f.text_field :title, placeholder: "Title" %>
+</p>
+<p>
+  Have watched
+  <%= f.check_box :watched %>
+</p>
+<p>
+  Currently watching
+  <%= f.check_box :watching %>
+</p>
+<p>
+  Want to watch:
+  <%= f.check_box :to_watch %>
+</p>

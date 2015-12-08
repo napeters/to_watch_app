@@ -1,0 +1,12 @@
+<h1><%= "All of @#{@user.username}'s shows" %></h1>
+
+<div>
+  <% @user_shows.each do |show| %>
+    <p><%= show.title %></p>
+    <p><%= link_to "X", user_show_path(@user, show), method: :delete %></p>
+  <% end %>
+</div>
+
+<!-- <p>
+  <%= link_to "Back to all posts", "/", {:class => "back"} %>
+</p> -->

@@ -1,0 +1,13 @@
+<h1>Add show</h1>
+
+<div>
+  <%= form_for [ @user, @show ] do |f| %>
+    <%= render partial: 'form', locals: {f: f} %>
+    <p>
+      <%= f.submit "Add" %>
+    </p>
+  <% end %>
+</div>
+<p>
+  <%= link_to "Cancel", "/" %>
+</p>

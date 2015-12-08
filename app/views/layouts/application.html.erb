@@ -2,13 +2,34 @@
 <html>
 <head>
   <title>ToWatchApp</title>
+    <!-- <link rel="icon" type="image/jpg" href="http://emojipop.net/data/images/emoji_set_487.png"> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <p class="flash"><%= flash.notice %></p>
+
+  <div class="container1">
+    <div class="new">
+      <% if current_user %>
+        <%= link_to "Add show", new_user_show_path(current_user) %>
+      <% end %>
+    </div>
+    <div class="account_info">
+      <% if current_user %>
+        <%= link_to "@#{current_user.username}", user_path(current_user) %> |
+        <%= link_to "Log out", "/logout" %>
+      <% else %>
+        <%= link_to "Log in", "/login" %> |
+        <%= link_to "Create an account", new_user_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <h1 class="app_name">To Watch</h1>
+  <div class="content"><%= yield %></div>
 
 </body>
 </html>

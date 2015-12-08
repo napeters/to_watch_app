@@ -1,0 +1,20 @@
+<h1>Create an account<h1>
+
+<div>
+  <%= form_for @user do |f| %>
+    <%= render partial: 'form', locals: {f: f} %>
+    <p>
+      <%= f.password_field :password, placeholder: "Password" %>
+    </p>
+    <p>
+      <%= f.password_field :password_confirmation,
+                            placeholder: "Password Confirmation" %>
+    </p>
+    <p>
+      <%= f.submit "Create!" %>
+    </p>
+  <% end %>
+</div>
+<p class="back">
+  <%= link_to "Cancel", "/", {:class => "cancel"} %>
+</p>
