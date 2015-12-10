@@ -25,8 +25,11 @@
               <%= link_to "Done", done_user_show_path(@user, show) %> |
               <%= link_to "Sleep" %>
             </p>
-            <p><%= show.title %></p>
-            <p><%= link_to "x", user_show_path(@user, show), method: :delete %></p>
+            <p><%= "#{show.title} (#{show.day_of_week})" %></p>
+            <p>
+              <%= link_to "Edit", edit_user_show_path(@user, show) %> |
+              <%= link_to "X", user_show_path(@user, show), method: :delete %>
+            </p>
           </div>
         <% end %>
       <% end %>
@@ -38,7 +41,10 @@
           <div class="show-line">
             <p><%= link_to "Start", start_user_show_path(@user, show) %></p>
             <p><%= show.title %></p>
-            <p><%= link_to "x", user_show_path(@user, show), method: :delete %></p>
+            <p>
+              <%= link_to "Edit", edit_user_show_path(@user, show) %> |
+              <%= link_to "X", user_show_path(@user, show), method: :delete %>
+            </p>
           </div>
         <% end %>
       <% end %>
@@ -49,7 +55,10 @@
         <% if show.watched %>
           <div class="show-line">
             <p><%= show.title %></p>
-            <p><%= link_to "x", user_show_path(@user, show), method: :delete %></p>
+            <p>
+              <%= link_to "Edit", edit_user_show_path(@user, show) %> |
+              <%= link_to "X", user_show_path(@user, show), method: :delete %>
+            </p>
           </div>
         <% end %>
       <% end %>

@@ -28,3 +28,8 @@
   Want to watch:
   <%= f.check_box :to_watch %>
 </p>
+<p>
+  Airs on:
+  <%= f.select :day_of_week, [ ['---'], ['Su'], ['M'], ['Tu'], ['W'], ['Th'],
+      ['F'], ['Sa'] ] %>
+</p>

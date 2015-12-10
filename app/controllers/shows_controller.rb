@@ -40,7 +40,7 @@ class ShowsController < ApplicationController
 
     if @show.update(show_params)
       flash.notice = "Updated!"
-      redirect_to user_show_path
+      redirect_to @user
     else
       render template: "shows/edit"
     end

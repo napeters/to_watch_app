@@ -9,7 +9,8 @@ module ShowsHelper
       :priority,
       :current_episode,
       :current_season,
-      :seasons
+      :seasons,
+      :day_of_week
     )
   end
 
